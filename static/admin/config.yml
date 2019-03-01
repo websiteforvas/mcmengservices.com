@@ -1,0 +1,139 @@
+backend:
+  name: git-gateway
+
+media_folder: "static/uploads" # Folder where user uploaded files should go
+public_folder: "uploads"
+
+collections: # A list of collections the CMS should be able to edit
+  - name: "services" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Services" # Used in the UI, ie.: "New Post"
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have
+      - {label: "Title", name: "title", widget: "string", default: "Services", hint: "EXISTING FILE WITH THE SAME TITLE WILL BE OVERWRITTEN."}
+      - {label: "Draft", name: "draft", widget: "hidden", default: true}
+      - label: "List"
+        name: "list"
+        widget: "object"
+        fields:
+          - label: "First"
+            name: "first"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "a_name", widget: "string"}
+              - {label: "Description", name: "a_description", widget: "string"}
+          - label: "Second"
+            name: "second"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "b_name", widget: "string"}
+              - {label: "Description", name: "b_description", widget: "string"}
+          - label: "Third"
+            name: "third"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "c_name", widget: "string"}
+              - {label: "Description", name: "c_description", widget: "string"}
+  
+  - name: "projects" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Projects" # Used in the UI, ie.: "New Post"
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have              
+      - {label: "Title", name: "title", widget: "string", default: "Projects", hint: "EXISTING FILE WITH THE SAME TITLE WILL BE OVERWRITTEN."}
+      - {label: "Draft", name: "draft", widget: "hidden", default: true}
+      - label: "Projects/Portfolio"
+        name: "f_projects"
+        widget: "object"
+        fields:
+          - label: "Project/Portfolio"
+            name: "a_project_one"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Title", name: "a_title_nine", widget: "string", hint: "e.g., COBLOGGER", required: false}
+              - {label: "Date", name: "b_date_one", widget: "string", hint: "MMM DD, YYYY", required: false}
+              - {label: "Summary", name: "c_summary_one", widget: "string", hint: "e.g., Write, edit, and update blog articles and case studies for clarity, helpfulness, SEO, shareability, staying true to brand, and accuracy.", required: false}
+              - {label: "Tag", name: "d_tag_one", widget: "string", hint: "e.g., Content Marketing.", required: false}
+              - {label: "External Link", name: "e_external_link_one", widget: "string", hint: "e.g., https://www.coblogger.com/", required: false}
+              - {label: "Description", name: "f_description_eighteen", widget: "string", hint: "More details about the project/portfolio.", required: false}
+          - label: "Project/Portfolio"
+            name: "b_project_two"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Title", name: "a_title_ten", widget: "string", required: false}
+              - {label: "Date", name: "b_date_two", widget: "string", required: false}
+              - {label: "Summary", name: "c_summary_two", widget: "string", required: false}
+              - {label: "Tag", name: "d_tag_two", widget: "string", required: false}
+              - {label: "External Link", name: "e_external_link_two", widget: "string", required: false}
+              - {label: "Description", name: "f_description_nineteen", widget: "string", required: false}
+          - label: "Project/Portfolio"
+            name: "c_project_three"
+            widget: "object"
+            required: false
+            fields:
+              - {label: "Title", name: "a_title_eleven", widget: "string", required: false}
+              - {label: "Date", name: "b_date_three", widget: "string", required: false}
+              - {label: "Summary", name: "c_summary_three", widget: "string", required: false}
+              - {label: "Tag", name: "d_tag_three", widget: "string", required: false}
+              - {label: "External Link", name: "e_external_link_three", widget: "string", required: false}
+              - {label: "Description", name: "f_description_twenty", widget: "string", required: false}
+
+  - name: "contact" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Contact" # Used in the UI, ie.: "New Post"
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have      
+      - {label: "Title", name: "title", widget: "string", default: "Contact", hint: "EXISTING FILE WITH THE SAME TITLE WILL BE OVERWRITTEN."}
+      - {label: "Draft", name: "draft", widget: "hidden", default: true}
+      - label: "Contact"
+        name: "g_contact"
+        widget: "object"
+        fields:              
+          - {label: "Email", name: "a_email", widget: "string"}
+          - {label: "Phone", name: "b_phone", widget: "number"}
+          - label: "Social Media"
+            name: "c_social_media"
+            widget: "object"
+            fields:
+              - {label: "Twitter Username", name: "a_twitter", widget: "string"}
+              - {label: "Facebook Username", name: "b_facebook", widget: "string"}
+              - {label: "Linkedin Username", name: "c_linkedin", widget: "string"}
+              - {label: "Google Plus Username", name: "d_google_plus", widget: "string"}
+              - {label: "Skype Username", name: "e_skype", widget: "string"}
+  
+  - name: "website_config" # Used in routes, ie.: /admin/collections/:slug/edit
+    label: "Website Config" # Used in the UI, ie.: "New Post"
+    folder: "content/post" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: # The fields each document in this collection have      
+      - {label: "Title", name: "title", widget: "string", default: "Website Config", hint: "EXISTING FILE WITH THE SAME TITLE WILL BE OVERWRITTEN."}
+      - {label: "Draft", name: "draft", widget: "hidden", default: true}
+      - label: "Website"
+        name: "h_website"
+        widget: "object"
+        fields:        
+          - label: "Plan"
+            name: "a_plan"
+            widget: "select"
+            options: ["Basic", "Premium"]
+          - {label: "Domain Name", name: "b_baseurl", widget: "string", hint: "e.g., juanadelacruz.com"}
+          - {label: "Private eMail", name: "c_private_email", widget: "string", hint: "e.g., hello@juanadelacruz.com, info@juanadelacruz.com, and contact@juanadelacruz.com."}
+          - {label: "Title of Site", name: "d_title_of_site", widget: "string", hint: "The title meta tag is the most important element in the site optimization process. Many search engines pay particular attention to keywords that occur in the title tag. As well, search engines generally display the title tag's contents in their site listings."}
+          - {label: "Description", name: "e_description", widget: "string", hint: "The description meta tag defines site information a search engine displays when it lists the site. The description meta tag should concisely explain the nature and contents of the page."}
+          - label: "Color Theme"
+            name: "f_color_theme"
+            widget: "select"
+            hint: "View color themes at https://websiteforvas.com/#themes."
+            options: ["default", "ocean", "forest", "dark", "apogee", "1950s", "coffee", "cupcake"]
+          - label: "Reports"
+            name: "g_reports"
+            widget: "object"
+            fields:
+              - {label: "Google Analytics Tracking ID", name: "a_googleAnalytics", widget: "string", required: false}
+    
